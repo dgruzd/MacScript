@@ -1,0 +1,45 @@
+#!/bin/sh
+echo "Enter your user.name for git"
+read name
+if [ "$name" ];then
+echo "$name"
+else
+name = "Dmitry Gruzd"
+fi
+echo "Enter your email for git"
+read email
+if [ "$email" ]; then
+echo "$email"
+else
+email = "donotsendhere@gmail.com"
+fi
+
+brew install git
+
+git config --global user.name "$name"
+git config --global user.email "$email" 
+git config --global core.editor "vim"
+#default is 8g for 64bit
+git config --global core.packedGitLimit 1g 
+#default is 512m
+git config --global core.bigFileThreshold 10m 
+
+
+
+echo "Do you want to generate ssh keys for github?[y/n]"
+read keys
+if [ "$keys" = "y" ]; then
+mkdir -pv $HOME/.ssh
+cd $HOME/.ssh
+#BACKUP OLD KEYS
+mkdir key_backup
+cp id_rsa* key_backup
+rm id_rsa*
+#GENERATE KEYS
+ssh-keygen -t rsa -C "$email"
+echo "COPY YOUR PUB KEY INTO GITHUB:"
+cat id_rsa.pub
+echo "##############################"
+else
+echo "OK"
+fi
