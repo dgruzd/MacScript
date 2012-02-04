@@ -41,7 +41,13 @@ alias gp='git push '
 alias gpu='git pull '
 alias gg='git add -A && git commit -a && git push'
 alias gm='git merge --no-ff '
+alias gl='git log -1 HEAD '
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
 ############################## EOF ############################
+
 
 ##
 # Your previous /Users/nyaa/.bash_profile file was backed up as /Users/nyaa/.bash_profile.macports-saved_2012-01-10_at_19:07:28
