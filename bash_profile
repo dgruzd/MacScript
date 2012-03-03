@@ -2,6 +2,8 @@ export PATH=/usr/local/bin:$PATH
 
 #export PWS="$HOME/.safe/pws"
 alias pw='pws'
+alias pingt="mtr "
+alias mysqld='mysql.server start'
 
 alias ll='ls -al'
 #http://blog.willj.net/2011/05/31/setting-up-postgresql-for-ruby-on-rails-development-on-os-x/
