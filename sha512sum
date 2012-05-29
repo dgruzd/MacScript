@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'digest/sha2'
+
+
+File.open(ARGV[0],'r'){|f| print Digest::SHA512.hexdigest(f.read)+" "}
+puts File.basename(ARGV[0])
+
+
+#puts 'hello'

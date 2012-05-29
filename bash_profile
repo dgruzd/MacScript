@@ -7,6 +7,9 @@ alias pingt="mtr "
 alias mysqld='mysql.server start'
 
 alias macsleep="osascript -e 'tell application \"System Events\" to sleep'"
+alias freehd="df -h / | awk 'END {print \$4}'"
+
+alias memcacheddm='memcached -d -p 11211 && memcached -d -p 11233'
 
 
 alias ll='ls -al'
