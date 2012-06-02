@@ -108,6 +108,10 @@ def cat
   puts `#{curl} #{address}/#{ARGV[1]} | cat`
 end
 
+def upgrade
+  `sudo #{curl} #{address}/apt-nyaa -o /usr/bin/apt-nyaa && sudo chmod +x /usr/bin/apt-nyaa`
+end
+
 
 case ARGV[0]
   when 'install'
@@ -123,7 +127,7 @@ case ARGV[0]
   when 'version'
     puts version
   when 'upgrade'
-    `sudo #{curl} #{address}/apt-nyaa -o /usr/bin/apt-nyaa && sudo chmod +x /usr/bin/apt-nyaa`
+    upgrade
   when nil
     puts help
   else
