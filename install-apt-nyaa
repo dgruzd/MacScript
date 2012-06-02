@@ -1,3 +1,3 @@
 #!/bin/sh
 #curl -L http://goo.gl/Vk252 | bash
-sudo curl -L https://raw.github.com/nyaa/MacScript/master/apt-nyaa -o /usr/bin/apt-nyaa && sudo chmod +x /usr/bin/apt-nyaa
+sudo curl -L -s https://raw.github.com/nyaa/MacScript/master/apt-nyaa -o /usr/bin/apt-nyaa && sudo chmod +x /usr/bin/apt-nyaa
