@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo curl -L https://raw.github.com/nyaa/MacScript/master/apt-nyaa -o /usr/bin/apt-nyaa && sudo chmod +x /usr/bin/apt-nyaa

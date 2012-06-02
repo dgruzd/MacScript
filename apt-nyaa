@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 Version = '0.0.1 mac edition'
+#sudo curl -L http://goo.gl/8i6Fu -o /usr/bin/apt-nyaa && sudo chmod +x /usr/bin/apt-nyaa
 
 def gem_available?(name)
   Gem::Specification.find_by_name(name)
@@ -25,16 +26,6 @@ unless is_color?
     end
   end
 end
-
-
-#def cputs(string, col = nil)
-#  if is_color?
-#    puts string.colorize(col)
-#  else
-#    puts string
-#  end
-#end
-
 
 if `id -u`.to_i == 0
   puts 'apt-nyaa launched by root, will exit now'
@@ -92,28 +83,37 @@ def list_txt
   arr = list.split("\n").sort
 end
 
+def search
+  arr = list_txt
+  second_parametres.each do |p|
+    if arr.include?(p)
+      puts "[OK]".colorize(:light_green)+": #{p}"
+    else
+      puts "[FAIL]".colorize(:light_red) +": #{p}"
+    end
+  end
+end
+
+def cat
+  puts `#{curl} #{address}/#{ARGV[1]} | cat`
+end
+
 
 case ARGV[0]
   when 'install'
     install
+  when 'cat'
+    cat
   when 'list'
     puts list_txt
   when 'search'
-    arr = list_txt
-    second_parametres.each do |p|
-      if arr.include?(p)
-        puts "[OK]".colorize(:light_green)+": #{p}"
-      else
-        puts "[FAIL]".colorize(:light_red) +": #{p}"
-      end
-    end
+    search
   when 'help'
     puts help
   when 'version'
     puts version
   when 'upgrade'
-    `#{curl} #{address}/apt-nyaa -o /usr/bin/apt-nyaa`
-    puts 'Not implemented yet'
+    `sudo #{curl} #{address}/apt-nyaa -o /usr/bin/apt-nyaa && sudo chmod +x /usr/bin/apt-nyaa`
   when nil
     puts help
   else
