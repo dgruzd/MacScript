@@ -81,10 +81,15 @@ def install
   dup = second_parametres
   puts "You didn't choose what do you want to install" if dup.empty?
   dup.each do |i|
-    url = "#{address}/#{i}"
+    url = "#{address}/FirstInstall/#{i}"
     puts "installing".colorize(:light_green)+" #{url}"
-    puts `curl -L #{url}| cat` #bash -s stable
+    puts `#{curl} #{url}| bash -s stable`
   end
+end
+
+def list_txt
+  list = `#{curl} #{address}/FirstInstall/list.txt`
+  arr = list.split("\n").sort
 end
 
 
@@ -92,10 +97,9 @@ case ARGV[0]
   when 'install'
     install
   when 'list'
-    puts `#{curl} #{address}/FirstInstall/list.txt | cat`
+    puts list_txt
   when 'search'
-    list = `#{curl} #{address}/FirstInstall/list.txt`
-    arr = list.split("\n")
+    arr = list_txt
     second_parametres.each do |p|
       if arr.include?(p)
         puts "[OK]".colorize(:light_green)+": #{p}"
@@ -108,6 +112,7 @@ case ARGV[0]
   when 'version'
     puts version
   when 'upgrade'
+    `#{curl} #{address}/apt-nyaa -o /usr/bin/apt-nyaa`
     puts 'Not implemented yet'
   when nil
     puts help
