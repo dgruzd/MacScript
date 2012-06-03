@@ -1,0 +1,18 @@
+#!/bin/sh
+brew install sshfs
+
+
+#In order for FUSE-based filesystems to work, the fuse4x kernel extension
+#must be installed by the root user:
+sudo cp -rfXv /usr/local/Cellar/fuse4x-kext/0.9.1/Library/Extensions/fuse4x.kext /Library/Extensions
+sudo chmod -v +s /Library/Extensions/fuse4x.kext/Support/load_fuse4x
+
+#If upgrading from a previous version of Fuse4x, the old kernel extension
+#will need to be unloaded before performing the steps listed above. First,
+#check that no FUSE-based filesystems are running:
+
+#mount -t fuse4x
+
+#Unmount all FUSE filesystems and then unload the kernel extension:
+
+#sudo kextunload -b org.fuse4x.kext.fuse4x
