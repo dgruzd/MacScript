@@ -1,3 +1,4 @@
 mplayer
 brew
 postgresql
+imagemagick
