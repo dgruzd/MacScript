@@ -11,6 +11,8 @@ alias freehd="df -h / | awk 'END {print \$4}'"
 
 alias memcacheddm='memcached -d -p 11211 && memcached -d -p 11233'
 
+alias pyserv='python -m SimpleHTTPServer'
+
 
 alias ll='ls -al'
 #http://blog.willj.net/2011/05/31/setting-up-postgresql-for-ruby-on-rails-development-on-os-x/
