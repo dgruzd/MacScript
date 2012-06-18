@@ -1,6 +1,7 @@
 #!/bin/sh
 brew install postgresql
 initdb /usr/local/var/postgres
+createuser --superuser postgres
 
 #add to .bash_profile
 #export PATH=/usr/local/bin:$PATH

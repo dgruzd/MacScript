@@ -15,6 +15,7 @@ alias pyserv='python -m SimpleHTTPServer'
 
 
 alias ll='ls -al'
+alias l='ls -l'
 #http://blog.willj.net/2011/05/31/setting-up-postgresql-for-ruby-on-rails-development-on-os-x/
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
