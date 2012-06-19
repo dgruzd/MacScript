@@ -1,0 +1,15 @@
+#!/bin/sh
+curl -L https://get.rvm.io | bash -s stable
+
+#rvm requirements
+#brew install libksba
+
+#seems like rvm auto add this line to .bashrc
+echo "[[ -s \"$HOME/.rvm/scripts/rvm\" ]] && source \"$HOME/.rvm/scripts/rvm\"" >> $HOME/.bashrc
+echo "Starting .bashrc:"
+echo "#######################################"
+cat $HOME/.bashrc | grep '.rvm'
+echo "#######################################"
+echo "Check is above a line with rvm"
+
+echo "gem: --no-ri --no-rdoc" >> ~/.gemrc
