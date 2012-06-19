@@ -57,7 +57,7 @@ def get(url)
 end
 
 def address 
-  'https://raw.github.com/nyaa/MacScript/master/'
+  'https://raw.github.com/nyaa/MacScript/master'
 end
 
 def version
@@ -105,7 +105,7 @@ def search
 end
 
 def cat
-  puts `#{curl} #{address}/#{ARGV[1]} | cat`
+  puts `#{curl} #{address}/FirstInstall/#{ARGV[1]} | cat`
 end
 
 def upgrade
