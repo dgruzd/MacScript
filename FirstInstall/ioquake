@@ -1,0 +1,60 @@
+#!/bin/sh
+
+if [ "$(which axel)" == '' ]; then
+  echo "Installing axel.."
+  brew install axel
+fi
+
+url=http://dl.dropbox.com/u/9175582
+
+q3a=/Applications/ioquake3
+temp_q3a=/tmp/ioquake3
+config='baseq3/autoexec.cfg'
+q3config="$temp_q3a/$config"
+rq3config="$q3a/$config"
+
+nick=`whoami`
+
+width=800
+height=600
+
+mkdir -pv $temp_q3a/baseq3
+mkdir -pv $temp_q3a/missionpack
+
+echo "seta name \"$nick\"" | tee -a $q3config
+echo "r_customWidth $width" | tee -a $q3config
+echo "r_customHeight $height" | tee -a $q3config
+echo "r_mode -1" | tee -a $q3config
+echo "vid_restart" | tee -a $q3config
+
+mkdir -pv /tmp/ioquake3-install
+cd /tmp/ioquake3-install
+
+echo "Downloading ioquake3.app file.."
+axel -a $url/mac-ioquake3.zip
+#http://ioquake3.org/extras/patch-data/
+echo "Downloading common quake3 resourses files.."
+axel -a $url/quake3-latest-pk3s.zip
+echo "Downloading maps.."
+axel -a $url/quake3-maps.zip
+#quake gold cd
+echo "Downloading pak0.pk3 file.."
+axel -a $url/PAK0.PK3
+
+mv -v PAK0.PK3 $temp_q3a/baseq3
+
+unzip quake3-latest-pk3s.zip && rm -v quake3-latest-pk3s.zip
+cp -v quake3-latest-pk3s/baseq3/* $temp_q3a/baseq3 
+cp -v quake3-latest-pk3s/missionpack/* $temp_q3a/missionpack
+rm -rf quake3-latest-pk3s/
+
+unzip quake3-maps.zip && rm -v quake3-maps.zip
+cp -v quake3-maps/*.pk3 $temp_q3a/baseq3
+rm -rf quake3-maps/
+
+unzip mac-ioquake3.zip && rm -v mac-ioquake3.zip
+mv -v ioquake3/* $temp_q3a/
+rm -rf ioquake3
+
+sudo mv -v $temp_q3a $q3a
+open $rq3config
