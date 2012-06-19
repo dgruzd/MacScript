@@ -84,7 +84,7 @@ def install
   dup.each do |i|
     url = "#{address}/FirstInstall/#{i}"
     puts "installing".colorize(:light_green)+" #{url}"
-    puts `#{curl} #{url}| bash -s stable`
+    exec "#{curl} #{url}| bash -s stable"
   end
 end
 
