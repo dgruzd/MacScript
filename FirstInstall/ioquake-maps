@@ -1,0 +1,28 @@
+#!/bin/sh
+
+if [ "$(which axel)" == '' ]; then
+  echo "Installing axel.."
+  brew install axel
+fi
+
+url=http://dl.dropbox.com/u/9175582
+
+q3a=/Applications/ioquake3
+temp_q3a=/tmp/ioquake3
+config='baseq3/autoexec.cfg'
+q3config="$temp_q3a/$config"
+rq3config="$q3a/$config"
+
+mkdir -pv $temp_q3a/baseq3
+
+mkdir -pv /tmp/ioquake3-install
+cd /tmp/ioquake3-install
+
+echo "Downloading maps.."
+axel -a $url/quake3-maps.zip
+
+unzip quake3-maps.zip && rm -v quake3-maps.zip
+cp -v quake3-maps/*.pk3 $temp_q3a/baseq3
+rm -rf quake3-maps/
+
+sudo mv -v $temp_q3a $q3a
