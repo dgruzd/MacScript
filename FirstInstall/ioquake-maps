@@ -22,7 +22,5 @@ echo "Downloading maps.."
 axel -a $url/quake3-maps.zip
 
 unzip quake3-maps.zip && rm -v quake3-maps.zip
-cp -v quake3-maps/*.pk3 $temp_q3a/baseq3
+sudo mv -v quake3-maps/*.pk3 $q3a/baseq3
 rm -rf quake3-maps/
-
-sudo mv -v $temp_q3a $q3a
