@@ -1,10 +1,11 @@
 #!/bin/sh
 brew install postgresql
 initdb /usr/local/var/postgres
-createuser --superuser postgres
 
 #add to .bash_profile
-#export PATH=/usr/local/bin:$PATH
+echo "export PATH=/usr/local/bin:\$PATH" >> ~/.bash_profile
+
+createuser --superuser postgres
 
 #mkdir -p ~/Library/LaunchAgents
 #  cp /usr/local/Cellar/postgresql/9.1.2/org.postgresql.postgres.plist ~/Library/LaunchAgents/
@@ -16,3 +17,9 @@ createuser --superuser postgres
 
 
 #env ARCHFLAGS="-arch x86_64" gem install pg
+
+#add aliases to ~/.bash_profile
+echo "alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'" >> ~/.bash_profile
+echo "alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'" >> ~/.bash_profile
+echo "alias pgtest='ps auxwww | grep postgres'" >> ~/.bash_profile
+echo "alias psqlp='psql -h localhost -U postgres '" >> ~/.bash_profile
