@@ -18,7 +18,7 @@ brew install git
 
 git config --global user.name "$name"
 git config --global user.email "$email" 
-git config --global core.editor "vim"
+git config --global core.editor "mvim -f"
 #default is 8g for 64bit
 git config --global core.packedGitLimit 1g 
 #default is 512m
