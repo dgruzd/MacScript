@@ -1,0 +1,3 @@
+#!/bin/sh
+brew tap homebrew/dupes
+brew install homebrew/dupes/apple-gcc42
