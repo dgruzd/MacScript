@@ -4,6 +4,11 @@ export LC_ALL=en_US.UTF-8
 
 export EDITOR=vim
 
+
+#easy tether
+alias tetheroff='sudo kextunload /System/Library/Extensions/EasyTetherUSBEthernet.kext'
+alias tetheron='sudo kextload /System/Library/Extensions/EasyTetherUSBEthernet.kext'
+
 #export PWS="$HOME/.safe/pws"
 alias pw='pws'
 alias pingt="mtr "
