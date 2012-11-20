@@ -1,6 +1,9 @@
 # Setting for the new UTF-8 terminal support in Lion
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+#export LC_CTYPE=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+export LC_CTYPE=ru_RU.UTF-8
+#export LC_ALL=ru_RU.UTF-8
+export LC_COLLATE=C
 
 export EDITOR=vim
 
@@ -26,8 +29,10 @@ alias ll='ls -al'
 alias l='ls -l'
 #http://blog.willj.net/2011/05/31/setting-up-postgresql-for-ruby-on-rails-development-on-os-x/
 
-# Postgresql
+# Brew
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+# Postgresql
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias pgtest='ps auxwww | grep postgres'
@@ -51,6 +56,7 @@ PS1="\h:\W\$(parse_git_branch)\$ "
 
 
 alias sshx='export DISPLAY=:0.0 && open /Applications/Utilities/X11.app && ssh -X'
+alias biggest='find ./ -type f -ls | sort -k 7 -r -n | head -10'
 
 # ALIASES FOR FAST WORK WITH GIT
 alias gs='git status '
@@ -58,14 +64,17 @@ alias ga='git add -A'
 alias gap='git add -p'
 alias gc='git commit -a'
 alias gcm='git commit -m '
+alias gca='git commit --amend -a '
 alias gb='git branch '
-alias gd='git diff'
+alias gd='git diff '
 alias go='git checkout '
 alias gp='git push '
 alias gpu='git pull '
 alias gg='git add -A && git commit -a && git push'
 alias gm='git merge --no-ff '
 alias gl='git log -1 HEAD '
+alias gignore='git rm -r --cached . && git add . && git commit -m ".gitignore is now working"'
+alias glog='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
