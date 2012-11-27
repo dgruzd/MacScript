@@ -1,0 +1,4 @@
+#!/bin/sh
+rvm get head
+echo "Rvm_configure_env=(CFLAGS=-03)" > ~/.rvmrc
+rvm install 1.9.3 -n perf --patch falcon
