@@ -43,3 +43,7 @@ echo "##############################"
 else
 echo "OK"
 fi
+
+
+git config --global core.excludesfile ~/.gitignore
+echo .DS_Store >> ~/.gitignore
