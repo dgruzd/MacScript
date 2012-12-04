@@ -1,0 +1,2 @@
+#!/bin/sh
+brew install https://github.com/homebrew/homebrew-dupes/commits/master/rsync.rb

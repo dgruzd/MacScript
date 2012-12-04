@@ -16,3 +16,7 @@ config_folder="$HOME/github/UbuntuScript/config/vim"
 ln -svi $config_folder/gvimrc $HOME/.gvimrc
 ln -svi $config_folder/gvimrc $HOME/.vimrc
 ln -svi $config_folder/vimfolder $HOME/.vim
+
+
+echo "######### Sublime"
+ln -svi $DIR/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User/Preferences.sublime-settings
