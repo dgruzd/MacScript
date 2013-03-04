@@ -23,7 +23,7 @@ git config --global core.editor "mvim -f"
 git config --global core.packedGitLimit 1g 
 #default is 512m
 git config --global core.bigFileThreshold 10m 
-
+git config --global color.ui true
 
 
 echo "Do you want to generate ssh keys for github?[y/n]"

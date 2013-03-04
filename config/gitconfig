@@ -5,3 +5,5 @@
 	editor = vim # mvim -f
 	packedGitLimit = 1g
 	bigFileThreshold = 10m
+[color]
+	ui = true

@@ -1,0 +1,5 @@
+#!/bin/sh
+rvm get stable
+brew install openssl
+export CC=clang
+rvm install 2.0.0

@@ -7,6 +7,14 @@ export LC_COLLATE=C
 
 export EDITOR=vim
 
+#macbook
+#0 – Legacy sleep mode. It will save everything to RAM upon sleeping but does not support “Safe Sleep”. Very fast sleep.
+#1 – Legacy “Safe Sleep”. This is the “Safe Sleep”. Everything your laptop goes into sleep, it will save everything to harddisk. Slow on Sleep and Startup.
+#3 – Default. As described above, when sleeping, contents are saved to RAM. When battery runs out, hibernate occurs.
+#5 – Behaves as 1 but applicable only for modern Mac that uses “Secure virtual memory”.
+#7 – Behaves as 3 but applicable only for modern Mac that uses “Secure virtual memory”
+alias hibernateon="sudo pmset -a hibernatemode 5"
+alias hibernateoff="sudo pmset -a hibernatemode 3"
 
 #easy tether
 alias tetheroff='sudo kextunload /System/Library/Extensions/EasyTetherUSBEthernet.kext'
