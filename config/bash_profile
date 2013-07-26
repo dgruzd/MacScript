@@ -7,6 +7,8 @@ export LC_COLLATE=C
 
 export EDITOR=vim
 
+export DMSERVER=20
+
 #macbook
 #0 – Legacy sleep mode. It will save everything to RAM upon sleeping but does not support “Safe Sleep”. Very fast sleep.
 #1 – Legacy “Safe Sleep”. This is the “Safe Sleep”. Everything your laptop goes into sleep, it will save everything to harddisk. Slow on Sleep and Startup.
@@ -28,7 +30,7 @@ alias mysqld='mysql.server start'
 alias macsleep="osascript -e 'tell application \"System Events\" to sleep'"
 alias freehd="df -h / | awk 'END {print \$4}'"
 
-alias memcacheddm='memcached -d -p 11211 && memcached -d -p 11233'
+alias memcacheddm='memcached -d -p 11233'
 
 alias pyserv='python -m SimpleHTTPServer'
 
@@ -84,6 +86,10 @@ alias gl='git log -1 HEAD '
 alias gignore='git rm -r --cached . && git add . && git commit -m ".gitignore is now working"'
 alias glog='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 
+
+alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
+alias torssh='ssh -o ProxyCommand="nc -X 4 -x localhost:9050 %h %p"'
+
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
@@ -99,3 +105,8 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+sssh(){
+    # try to connect every 0.5 secs (modulo timeouts)
+      while true; do command ssh "$@"; [ $? -ne 255 ] && break || sleep 0.5; done
+    }
