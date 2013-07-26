@@ -5,7 +5,7 @@ ln -svi $DIR/bash_profile ~/.bash_profile
 echo "##########	git settings config"
 ln -svi $DIR/gitconfig ~/.gitconfig
 echo "##########	ssh/config"
-mkdir -pv ~/.ssh
+mkdir -pv ~/.ssh/socket
 ln -svi ~/github/MyScript/ssh/ssh_config ~/.ssh/config
 
 echo "##########	mplayer"
@@ -18,5 +18,5 @@ ln -svi $config_folder/gvimrc $HOME/.vimrc
 ln -svi $config_folder/vimfolder $HOME/.vim
 
 
-echo "######### Sublime"
-ln -svi $DIR/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User/Preferences.sublime-settings
+#echo "######### Sublime"
+#ln -svi $DIR/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User/Preferences.sublime-settings

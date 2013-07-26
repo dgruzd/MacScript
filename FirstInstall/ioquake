@@ -5,7 +5,7 @@ if [ "$(which axel)" == '' ]; then
   brew install axel
 fi
 
-url=http://q3.zengile.com/files
+url=http://q3.zengile.com/system/q3files
 
 q3a=/Applications/ioquake3
 temp_q3a=/tmp/ioquake3
