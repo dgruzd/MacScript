@@ -90,6 +90,8 @@ alias glog='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias torssh='ssh -o ProxyCommand="nc -X 4 -x localhost:9050 %h %p"'
 
+alias rvmu='rvm use @${PWD##*/} --rvmrc --create'
+
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
