@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd /tmp
+curl -L -o bitcoin.dmg http://sourceforge.net/projects/bitcoin/files/Bitcoin/bitcoin-0.8.3/bitcoin-0.8.3-macosx.dmg/download
+hdiutil attach bitcoin.dmg
+sudo rm -rf /Application/Bitcoin-Qt.app
+sudo cp -r /Volumes/Bitcoin-Qt/Bitcoin-Qt.app /Applications/
+
+sudo umount /Volumes/Bitcoin-Qt
+rm bitcoin.dmg
