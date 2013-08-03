@@ -1,0 +1,35 @@
+#!/bin/sh
+cd /tmp
+
+wget http://libdnet.googlecode.com/files/libdnet-1.12.tgz
+tar -xzf libdnet-1.12.tgz
+cd libdnet-1.12
+./configure
+make
+sudo make install
+cd python
+sudo python setup.py install
+
+
+cd /tmp
+curl -o pylibpcap.tar.gz -L http://sourceforge.net/projects/pylibpcap/files/pylibpcap/0.6.2/pylibpcap-0.6.2.tar.gz/download
+tar xvzf pylibpcap.tar.gz
+cd pylibpcap-0.6.2/
+sudo python setup.py install
+
+
+cd /tmp
+wget http://www.secdev.org/projects/scapy/files/scapy-latest.tar.gz
+tar -xzf scapy-latest.tar.gz
+cd scapy-latest
+sudo python setup.py install
+
+
+cd /tmp
+svn checkout http://pyrit.googlecode.com/svn/trunk/ pyrit-read-only
+cd pyrit-read-only
+cd pyrit
+sudo python setup.py install
+
+cd ../cpyrit_cuda
+sudo LDFLAGS=-L/usr/local/cuda/lib python setup.py install

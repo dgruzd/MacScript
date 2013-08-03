@@ -1,0 +1,4 @@
+#!/bin/sh
+brew install python
+sudo pip install --upgrade setuptools
+sudo pip install --upgrade pip

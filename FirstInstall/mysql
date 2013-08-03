@@ -1,0 +1,12 @@
+#!/bin/sh
+brew install mysql
+
+#open -t `which mysql_config`
+#
+#cflags="-I$pkgincludedir  -Wall -Wno-null-conversion -Wno-unused-private-field -Os -g -fno-strict-aliasing -DDBUG_OFF -arch x86_64 " #note: end space!
+#cxxflags="-I$pkgincludedir  -Wall -Wno-null-conversion -Wno-unused-private-field -Os -g -fno-strict-aliasing -DDBUG_OFF -arch x86_64 " #note: end space!
+
+#And the changed version:
+
+#cflags="-I$pkgincludedir  -Wall -Os -g -fno-strict-aliasing -DDBUG_OFF -arch x86_64 " #note: end space!
+#cxxflags="-I$pkgincludedir  -Wall -Os -g -fno-strict-aliasing -DDBUG_OFF -arch x86_64 " #note: end space!

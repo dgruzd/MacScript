@@ -112,3 +112,6 @@ sssh(){
     # try to connect every 0.5 secs (modulo timeouts)
       while true; do command ssh "$@"; [ $? -ne 255 ] && break || sleep 0.5; done
     }
+
+
+export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH
