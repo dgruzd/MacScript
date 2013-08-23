@@ -1,0 +1,4 @@
+#!/bin/sh
+gem install autotest-standalone
+gem install autotest-fsevent
+gem install autotest-growl

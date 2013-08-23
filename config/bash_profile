@@ -42,6 +42,8 @@ alias l='ls -l'
 # Brew
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+export PATH=/Users/nyaa/github/MacScript/Other/bin:$PATH
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # Postgresql
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
@@ -113,5 +115,8 @@ sssh(){
       while true; do command ssh "$@"; [ $? -ne 255 ] && break || sleep 0.5; done
     }
 
+whoiss(){
+  while true; do whois "$@" | less || break || sleep 2; done
+  }
 
-export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH
+#export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH

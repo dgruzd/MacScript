@@ -12,4 +12,4 @@ cat $HOME/.bashrc | grep '.rvm'
 echo "#######################################"
 echo "Check is above a line with rvm"
 
-echo "gem: --no-ri --no-rdoc" >> ~/.gemrc
+#echo "gem: --no-ri --no-rdoc" >> ~/.gemrc
