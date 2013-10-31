@@ -1,0 +1,4 @@
+#!/bin/sh
+brew uninstall libav
+brew install libvpx libvorbis
+brew install libav --with-libvpx --with-libvorbis
