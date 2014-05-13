@@ -1,0 +1,11 @@
+#!/bin/sh
+# installing gcc on mavericks using brew
+brew tap homebrew/dupes
+brew install apple-gcc42
+
+#cd /usr/bin
+#sudo mv gcc gcc_mavs
+#sudo ln -s /usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/gcc-4.2 gcc
+
+brew link --force apple-gcc42
+ln -nsf $(which gcc-4.2) /usr/bin/gcc-4.2

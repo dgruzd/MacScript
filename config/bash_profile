@@ -6,6 +6,7 @@ export LC_CTYPE=ru_RU.UTF-8
 export LC_COLLATE=C
 
 export EDITOR=vim
+alias g="mvim --remote-silent "
 
 export DMSERVER=20
 
@@ -50,6 +51,10 @@ alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias pgtest='ps auxwww | grep postgres'
 alias psqlp='psql -h localhost -U postgres '
 export PGDATA='/usr/local/var/postgres'
+# Elasticsearch
+alias elasticstart='elasticsearch -f -D es.config=/usr/local/opt/elasticsearch-0.90/config/elasticsearch.yml'
+# Redis
+alias redisstart='redis-server /usr/local/etc/redis.conf'
 ###########
 
 # Константы цветов
@@ -75,7 +80,7 @@ alias biggest='find ./ -type f -ls | sort -k 7 -r -n | head -10'
 alias gs='git status '
 alias ga='git add -A'
 alias gap='git add -p'
-alias gc='git commit -a'
+alias gc='git commit '
 alias gcm='git commit -m '
 alias gca='git commit --amend -a '
 alias gb='git branch '
@@ -115,6 +120,12 @@ sssh(){
     # try to connect every 0.5 secs (modulo timeouts)
       while true; do command ssh "$@"; [ $? -ne 255 ] && break || sleep 0.5; done
     }
+sssr(){
+  sssh "$@" -t 'bash -l -c "screen -rx; bash"'
+}
+ssst(){
+  sssh "$@" -t 'bash -l -c "tmux attach; bash"'
+}
 
 whoiss(){
   while true; do whois "$@" | less || break || sleep 2; done
@@ -123,3 +134,5 @@ whoiss(){
 #export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH
 
 export HADOOP_HOME="/usr/local/Cellar/hadoop/1.2.1/libexec"
+export JRUBY_OPTS='-J-Xmx2048m -J-Xms1024m -J-Xss4m -J-XX:MaxPermSize=256m -Xcompile.invokedynamic=false -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1'
+export ASSETS_MODE='nodebug'

@@ -1,0 +1,4 @@
+#!/bin/sh
+brew uninstall ffmpeg
+brew install libvpx libvorbis lame x264 xvid faac theora
+brew install ffmpeg --with-libvpx --with-libvorbis

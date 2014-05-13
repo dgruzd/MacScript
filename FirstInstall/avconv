@@ -1,4 +1,4 @@
 #!/bin/sh
 brew uninstall libav
-brew install libvpx libvorbis
+brew install libvpx libvorbis lame x264 xvid faac theora
 brew install libav --with-libvpx --with-libvorbis

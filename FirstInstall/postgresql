@@ -1,28 +1,11 @@
 #!/bin/sh
-# For Lion
-#brew install postgresql
 
-# For Mountain lion
-brew install postgresql --without-ossp-uuid
-
-# Init database
-initdb /usr/local/var/postgres
-
-#add to .bash_profile
-echo "export PATH=/usr/local/bin:\$PATH" >> ~/.bash_profile
+#https://github.com/petere/homebrew-postgresql
+brew tap petere/postgresql
+brew install postgresql-9.2
+pg_createcluster 9.2 main
+pg_ctlcluster 9.2 main start
 
 createuser --superuser postgres
 
 echo "create database `whoami` owner `whoami`;" | psql -h localhost -U postgres
-
-#/private/var/pgsql/pg_hba.conf
-
-#/usr/local/var/postgres/pg_hba.conf
-
-#env ARCHFLAGS="-arch x86_64" gem install pg
-
-#echo "add aliases to ~/.bash_profile"
-#echo "alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'" >> ~/.bash_profile
-#echo "alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'" >> ~/.bash_profile
-#echo "alias pgtest='ps auxwww | grep postgres'" >> ~/.bash_profile
-#echo "alias psqlp='psql -h localhost -U postgres '" >> ~/.bash_profile
