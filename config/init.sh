@@ -20,3 +20,5 @@ ln -svi $config_folder/vimfolder $HOME/.vim
 
 #echo "######### Sublime"
 #ln -svi $DIR/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User/Preferences.sublime-settings
+
+ln -svi ~/Library/Containers/com.apple.BKAgentService/Data/Documents/iBooks/Books ~/Documents/iBooks

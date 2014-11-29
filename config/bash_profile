@@ -8,7 +8,7 @@ export LC_COLLATE=C
 export EDITOR=vim
 alias g="mvim --remote-silent "
 
-export DMSERVER=20
+export DMSERVER=21
 
 #macbook
 #0 – Legacy sleep mode. It will save everything to RAM upon sleeping but does not support “Safe Sleep”. Very fast sleep.
@@ -93,6 +93,7 @@ alias gm='git merge --no-ff '
 alias gl='git log -1 HEAD '
 alias gignore='git rm -r --cached . && git add . && git commit -m ".gitignore is now working"'
 alias glog='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
+alias gr='git reset master $1 && git checkout -- $1'
 
 
 alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
@@ -134,5 +135,5 @@ whoiss(){
 #export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH
 
 export HADOOP_HOME="/usr/local/Cellar/hadoop/1.2.1/libexec"
-export JRUBY_OPTS='-J-Xmx2048m -J-Xms1024m -J-Xss4m -J-XX:MaxPermSize=256m -Xcompile.invokedynamic=false -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1'
-export ASSETS_MODE='nodebug'
+#export JRUBY_OPTS='-J-Xmx2048m -J-Xms1024m -J-Xss4m -J-XX:MaxPermSize=256m -Xcompile.invokedynamic=false -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1'
+#export ASSETS_MODE='nodebug'
