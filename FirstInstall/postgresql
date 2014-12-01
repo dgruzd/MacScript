@@ -4,10 +4,9 @@
 brew tap petere/postgresql
 
 brew install postgresql-9.3
+brew install --HEAD postgresql-common
+
 pg_createcluster 9.3 main
 pg_ctlcluster 9.3 main start
-
-#createuser --superuser postgres
-#echo "create database `whoami` owner `whoami`;" | psql -h localhost -U postgres
 
 echo "create database `whoami` owner `whoami`;" | psql -d template1
