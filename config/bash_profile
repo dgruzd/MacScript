@@ -8,7 +8,7 @@ export LC_COLLATE=C
 export EDITOR=vim
 alias g="mvim --remote-silent "
 
-export DMSERVER=21
+export DMSERVER=20
 
 #macbook
 #0 – Legacy sleep mode. It will save everything to RAM upon sleeping but does not support “Safe Sleep”. Very fast sleep.
@@ -34,7 +34,6 @@ alias freehd="df -h / | awk 'END {print \$4}'"
 alias memcacheddm='memcached -d -p 11233'
 
 alias pyserv='python -m SimpleHTTPServer'
-
 
 alias ll='ls -al'
 alias l='ls -l'
@@ -72,7 +71,6 @@ function parse_git_branch {
 #\h:\W \u\$
 PS1="\h:\W\$(parse_git_branch)\$ "
 
-
 alias sshx='export DISPLAY=:0.0 && open /Applications/Utilities/X11.app && ssh -X'
 alias biggest='find ./ -type f -ls | sort -k 7 -r -n | head -10'
 
@@ -95,17 +93,16 @@ alias gignore='git rm -r --cached . && git add . && git commit -m ".gitignore is
 alias glog='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias gr='git reset master $1 && git checkout -- $1'
 
-
 alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias torssh='ssh -o ProxyCommand="nc -X 4 -x localhost:9050 %h %p"'
 
 alias rvmu='rvm use $1@${PWD##*/} --rvmrc --create'
+alias tailmac="ssh 192.168.1.2 'tail -n 0 -f ~/github/onlinetours/log/development.log'"
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 ############################## EOF ############################
-
 
 ##
 # Your previous /Users/nyaa/.bash_profile file was backed up as /Users/nyaa/.bash_profile.macports-saved_2012-01-10_at_19:07:28
@@ -114,8 +111,6 @@ fi
 # MacPorts Installer addition on 2012-01-10_at_19:07:28: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
 sssh(){
     # try to connect every 0.5 secs (modulo timeouts)
@@ -137,3 +132,9 @@ whoiss(){
 export HADOOP_HOME="/usr/local/Cellar/hadoop/1.2.1/libexec"
 export JRUBY_OPTS='-J-Xmx2048m -J-Xms1024m -J-Xss4m -J-XX:MaxPermSize=256m -Xcompile.invokedynamic=false -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1'
 #export ASSETS_MODE='nodebug'
+RAILS_ENV=development
+export PATH="/Users/nyaa/Development/android/sdk/platform-tools:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export JAVA_HOME=$(/usr/libexec/java_home)
