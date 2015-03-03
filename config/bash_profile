@@ -135,5 +135,5 @@ whoiss(){
 #export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH
 
 export HADOOP_HOME="/usr/local/Cellar/hadoop/1.2.1/libexec"
-#export JRUBY_OPTS='-J-Xmx2048m -J-Xms1024m -J-Xss4m -J-XX:MaxPermSize=256m -Xcompile.invokedynamic=false -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1'
+export JRUBY_OPTS='-J-Xmx2048m -J-Xms1024m -J-Xss4m -J-XX:MaxPermSize=256m -Xcompile.invokedynamic=false -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1'
 #export ASSETS_MODE='nodebug'
