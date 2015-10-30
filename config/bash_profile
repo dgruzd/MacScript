@@ -99,6 +99,8 @@ alias torssh='ssh -o ProxyCommand="nc -X 4 -x localhost:9050 %h %p"'
 alias rvmu='rvm use $1@${PWD##*/} --rvmrc --create'
 alias tailmac="ssh 192.168.1.2 'tail -n 0 -f ~/github/onlinetours/log/development.log'"
 
+alias torrnas="scp ~/Downloads/*.torrent nyaa-nas:/storage/BGS/Video/XBMCtorrent/ && rm ~/Downloads/*.torrent"
+
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
@@ -138,3 +140,5 @@ export PATH="/Users/nyaa/Development/android/sdk/platform-tools:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export JAVA_HOME=$(/usr/libexec/java_home)
+alias permute2="open -a Permute\ 2"
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
