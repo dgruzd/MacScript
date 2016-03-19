@@ -129,6 +129,7 @@ whoiss(){
 
 export HADOOP_HOME="/usr/local/Cellar/hadoop/1.2.1/libexec"
 export JRUBY_OPTS='-J-Xmx2048m -J-Xms1024m -J-Xss4m -J-XX:MaxPermSize=256m -Xcompile.invokedynamic=false -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1'
+#export SBT_OPTS="-Xmx1536m -Xms512m"
 #export ASSETS_MODE='nodebug'
 RAILS_ENV=development
 
@@ -137,7 +138,6 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 alias permute2="open -a Permute\ 2"
 alias hdtvtor="scp *.torrent nyaa-nas:/storage/BGS/Video/XBMCtorrent/ && rm *.torrent"
 HOMEBREW_GITHUB_TOKEN="d643b7bf305ca1318d7a66ea51325d0b70a01c4e"
-. ~/.nvm/nvm.sh
 export LC_NUMERIC="C"
 
 
@@ -151,9 +151,11 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # Dev
 export PATH="/Users/nyaa/Development/android/sdk/platform-tools:$PATH"
 # Gnu
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # RVM
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/sbin:/usr/sbin
+. ~/.nvm/nvm.sh
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function

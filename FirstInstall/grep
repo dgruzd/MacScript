@@ -1,0 +1,4 @@
+#!/bin/sh
+
+brew tap homebrew/dupes
+brew install grep
