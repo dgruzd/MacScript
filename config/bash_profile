@@ -5,6 +5,7 @@
 export LC_CTYPE=ru_RU.UTF-8
 #export LC_ALL=ru_RU.UTF-8
 export LC_COLLATE=C
+export PYTHON_LIB=/usr/local/Cellar/python/2.7.10_2/lib
 
 export EDITOR=vim
 alias g="mvim --remote-silent "
