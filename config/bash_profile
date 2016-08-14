@@ -10,7 +10,7 @@ export PYTHON_LIB=/usr/local/Cellar/python/2.7.10_2/lib
 export EDITOR=vim
 alias g="mvim --remote-silent "
 
-export DMSERVER=20
+export DMSERVER=21
 
 #macbook
 #0 – Legacy sleep mode. It will save everything to RAM upon sleeping but does not support “Safe Sleep”. Very fast sleep.
@@ -39,6 +39,8 @@ alias pyserv='python -m SimpleHTTPServer'
 
 alias ll='ls -al'
 alias l='ls -l'
+alias isop="open -a Isoplex"
+alias popcorn="open -a Popcorn-Time"
 #http://blog.willj.net/2011/05/31/setting-up-postgresql-for-ruby-on-rails-development-on-os-x/
 
 # Postgresql
@@ -92,25 +94,20 @@ alias gr='git reset master $1 && git checkout -- $1'
 
 alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias torssh='ssh -o ProxyCommand="nc -X 4 -x localhost:9050 %h %p"'
+alias torpolipo='polipo -- socksParentProxy=localhost:9050 diskCacheRoot="" proxyPort=8118'
+alias torscreen='screen -amdS tor tor && screen -amdS polipo polipo -- socksParentProxy=localhost:9050 diskCacheRoot="" proxyPort=8118'
+
 
 alias rvmu='rvm use $1@${PWD##*/} --rvmrc --create'
 alias tailmac="ssh 192.168.1.2 'tail -n 0 -f ~/github/onlinetours/log/development.log'"
 
 alias torrnas="scp ~/Downloads/*.torrent nyaa-nas:/storage/BGS/Video/XBMCtorrent/ && rm ~/Downloads/*.torrent"
+alias yoump3="youtube-dl --extract-audio --audio-format mp3"
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 ############################## EOF ############################
-
-##
-# Your previous /Users/nyaa/.bash_profile file was backed up as /Users/nyaa/.bash_profile.macports-saved_2012-01-10_at_19:07:28
-##
-
-# MacPorts Installer addition on 2012-01-10_at_19:07:28: adding an appropriate PATH variable for use with MacPorts.
-# export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
 sssh(){
     # try to connect every 0.5 secs (modulo timeouts)
       while true; do command ssh "$@"; [ $? -ne 255 ] && break || sleep 0.5; done
@@ -125,8 +122,6 @@ ssst(){
 whoiss(){
   while true; do whois "$@" | less || break || sleep 2; done
   }
-
-#export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH
 
 export HADOOP_HOME="/usr/local/Cellar/hadoop/1.2.1/libexec"
 export JRUBY_OPTS='-J-Xmx2048m -J-Xms1024m -J-Xss4m -J-XX:MaxPermSize=256m -Xcompile.invokedynamic=false -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1'
@@ -148,15 +143,16 @@ export LC_NUMERIC="C"
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/Users/nyaa/github/MacScript/Other/bin:$PATH
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+#export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # Dev
-export PATH="/Users/nyaa/Development/android/sdk/platform-tools:$PATH"
+export PATH="/Users/nyaa/Library/Android/sdk/platform-tools:$PATH"
+export PATH="/Users/nyaa/Library/Android/sdk/tools:$PATH"
 # Gnu
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # RVM
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/sbin:/usr/sbin
-. ~/.nvm/nvm.sh
+# export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/sbin:/usr/sbin
+# . ~/.nvm/nvm.sh
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
