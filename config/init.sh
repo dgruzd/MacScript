@@ -2,6 +2,8 @@
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 echo "##########	bash_profile"
 ln -svi $DIR/bash_profile ~/.bash_profile
+echo "##########	inputrc"
+ln -svi $DIR/inputrc ~/.inputrc
 echo "##########	git settings config"
 ln -svi $DIR/gitconfig ~/.gitconfig
 echo "##########	ssh/config"
