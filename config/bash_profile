@@ -119,6 +119,9 @@ sssr(){
 ssst(){
   sssh "$@" -t 'bash -l -c "tmux attach; bash"'
 }
+function up {
+  cd `expr "$PWD" : "^\(.*$1[^/]*\)"`
+} 
 
 whoiss(){
   while true; do whois "$@" | less || break || sleep 2; done
